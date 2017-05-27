@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Query implements Comparable<Query> {
-    String query;
-    List<String> queryWords;
+    public String query;
+    public List<String> queryWords;
 
     public Query(String query) {
         this.query = new String(query);

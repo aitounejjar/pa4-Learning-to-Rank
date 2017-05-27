@@ -57,10 +57,10 @@ public class Learning2Rank {
 
         }
     
-    /* Step (1): construct your feature matrix here */
+        /* Step (1): construct your feature matrix here */
         Instances data = learner.extractTrainFeatures(train_signal_file, train_rel_file, idfs);
     
-    /* Step (2): implement your learning algorithm here */
+        /* Step (2): implement your learning algorithm here */
         model = learner.training(data);
 
         return model;
@@ -86,23 +86,24 @@ public class Learning2Rank {
             learner = new PairwiseLearner(isLinearKernel);
         } else if (task == 3) {
     
-      /* 
-       * @TODO: Your code here, add more features 
-       * */
-            System.err.println("Task 3");
+          /*
+           * @TODO: Your code here, add more features
+           * */
+                System.err.println("Task 3");
 
         } else if (task == 4) {
        
-      /* 
-       * @TODO: Your code here, extra credit 
-       * */
+          /*
+           * @TODO: Your code here, extra credit
+           * */
             System.err.println("Extra credit");
 
         }
-    /* Step (1): construct your test feature matrix here */
+
+        /* Step (1): construct your test feature matrix here */
         TestFeatures tf = learner.extractTestFeatures(test_signal_file, idfs);
     
-    /* Step (2): implement your prediction and ranking code here */
+        /* Step (2): implement your prediction and ranking code here */
         ranked_queries = learner.testing(tf, model);
 
         return ranked_queries;
