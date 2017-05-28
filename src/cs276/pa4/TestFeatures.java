@@ -18,4 +18,9 @@ public class TestFeatures {
      *   features.get(index_map.get(query).get(doc));
      * */
     Map<Query, Map<Document, Integer>> index_map;
+
+    public TestFeatures(Instances features, Map<Query, Map<Document, Integer>> index_map) {
+        this.features = features;
+        this.index_map = index_map;
+    }
 }
