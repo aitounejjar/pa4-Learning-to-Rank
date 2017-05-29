@@ -318,6 +318,14 @@ public class Util {
                 }
             }
 
+            int bodyLength = bodyCountMap.size();
+            for (String bodyHit : bodyCountMap.keySet()) {
+                if (queryWord.equals(bodyHit)) {
+                    double oldVal = tfs.get("body").get(queryWord);
+                    tfs.get("body").put(queryWord, Math.log(oldVal/bodyLength) );
+                }
+            }
+
         }
         return tfs;
     }

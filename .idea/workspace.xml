@@ -2,41 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3797d2db-0e79-441e-bdc0-ffd19a54719c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/ejml-0.23.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/weka.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/l2r.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pa4-skeleton.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/renderSideBySide.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/run.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Document.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Embedding.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Feature.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Learner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Learning2Rank.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/NdcgMain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Pair.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/PairwiseLearner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Parser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/PointwiseLearner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Quad.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Query.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/TestFeatures.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs276/pa4/Util.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm.m4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm_model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm_node.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm_parameter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm_print_interface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libsvm/svm_problem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/weka/classifiers/functions/LibSVM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs276/pa4/Feature.java" afterPath="$PROJECT_DIR$/src/cs276/pa4/Feature.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs276/pa4/Util.java" afterPath="$PROJECT_DIR$/src/cs276/pa4/Util.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +16,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Feature.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Feature.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="e#2358#2374#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>extract</find>
+      <find>features</find>
+      <find>log</find>
+      <find>isSublinearScaling</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -64,6 +53,9 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/libsvm/svm.java" />
+        <option value="$PROJECT_DIR$/src/cs276/pa4/PointwiseLearner.java" />
+        <option value="$PROJECT_DIR$/src/cs276/pa4/Util.java" />
+        <option value="$PROJECT_DIR$/src/cs276/pa4/Feature.java" />
       </list>
     </option>
   </component>
@@ -74,10 +66,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="y" value="23" />
-    <option name="width" value="1422" />
-    <option name="height" value="855" />
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -94,28 +85,42 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa4-skeleton-repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -123,21 +128,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="functions" />
+              <option name="myItemId" value="cs276" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pa4-skeleton" />
+              <option name="myItemId" value="pa4-skeleton-repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs276" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa4-skeleton-repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa4-skeleton-repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -152,6 +179,118 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="add_unversioned_files" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cs276/pa4/PointwiseLearner.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cs276/pa4/TestFeatures.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -165,7 +304,89 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Learning2Rank">
+    <configuration default="false" name="Learning2Rank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cs276.pa4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="cs276.pa4.Learning2Rank" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="pa4-data\pa4-data\pa3.signal.train pa4-data\pa4-data\pa3.rel.train pa4-data\pa4-data\pa3.signal.dev pa4-data\pa4-data\idfs 1 out.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="pa4-skeleton" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -189,15 +410,66 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -282,6 +554,14 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -375,6 +655,12 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -404,6 +690,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -419,9 +711,14 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.Learning2Rank" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Learning2Rank" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -434,37 +731,46 @@
       <option name="presentableId" value="Default" />
       <updated>1495910589433</updated>
       <workItem from="1495910591255" duration="335000" />
+      <workItem from="1495913109624" duration="13270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335000" />
+    <option name="totallyTimeSpent" value="13605000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="1422" height="855" extended-state="0" />
+    <frame x="-7" y="0" width="1378" height="745" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971507" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.56987786" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5931677" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27086616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2496329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3984252" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +780,23 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs276/pa4/PointwiseLearner.java</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs276/pa4/Feature.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -494,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -503,33 +824,235 @@
         <state relative-caret-position="72">
           <caret line="89" column="35" lean-forward="true" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9168#9169#0" expanded="true" />
-            <element signature="e#9211#9212#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <element signature="e#9535#9536#0" expanded="true" />
-            <element signature="e#9572#9573#0" expanded="true" />
-            <element signature="e#9625#9626#0" expanded="true" />
-            <element signature="e#9655#9656#0" expanded="true" />
-            <element signature="e#9701#9702#0" expanded="true" />
-            <element signature="e#32912#32913#0" expanded="true" />
-            <element signature="e#32937#32938#0" expanded="true" />
-            <element signature="e#33994#33995#0" expanded="true" />
-            <element signature="e#34019#34020#0" expanded="true" />
-            <element signature="e#36033#36034#0" expanded="true" />
-            <element signature="e#36058#36059#0" expanded="true" />
-            <element signature="e#36562#36563#0" expanded="true" />
-            <element signature="e#36603#36604#0" expanded="true" />
-            <element signature="e#68961#68962#0" expanded="true" />
-            <element signature="e#69004#69005#0" expanded="true" />
-            <element signature="e#69063#69064#0" expanded="true" />
-            <element signature="e#69100#69101#0" expanded="true" />
-            <element signature="e#69579#69580#0" expanded="true" />
-            <element signature="e#69609#69610#0" expanded="true" />
-            <element signature="e#77577#77578#0" expanded="true" />
-            <element signature="e#77631#77632#0" expanded="true" />
-            <element signature="e#77672#77673#0" expanded="true" />
-            <element signature="e#77714#77715#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#9168#9169#0" expanded="false" />
+            <element signature="e#9211#9212#0" expanded="false" />
+            <element signature="e#9482#9483#0" expanded="false" />
+            <element signature="e#9535#9536#0" expanded="false" />
+            <element signature="e#9572#9573#0" expanded="false" />
+            <element signature="e#9625#9626#0" expanded="false" />
+            <element signature="e#9655#9656#0" expanded="false" />
+            <element signature="e#9701#9702#0" expanded="false" />
+            <element signature="e#32912#32913#0" expanded="false" />
+            <element signature="e#32937#32938#0" expanded="false" />
+            <element signature="e#33994#33995#0" expanded="false" />
+            <element signature="e#34019#34020#0" expanded="false" />
+            <element signature="e#36033#36034#0" expanded="false" />
+            <element signature="e#36058#36059#0" expanded="false" />
+            <element signature="e#36562#36563#0" expanded="false" />
+            <element signature="e#36603#36604#0" expanded="false" />
+            <element signature="e#68961#68962#0" expanded="false" />
+            <element signature="e#69004#69005#0" expanded="false" />
+            <element signature="e#69063#69064#0" expanded="false" />
+            <element signature="e#69100#69101#0" expanded="false" />
+            <element signature="e#69579#69580#0" expanded="false" />
+            <element signature="e#69609#69610#0" expanded="false" />
+            <element signature="e#77577#77578#0" expanded="false" />
+            <element signature="e#77631#77632#0" expanded="false" />
+            <element signature="e#77672#77673#0" expanded="false" />
+            <element signature="e#77714#77715#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding>
+            <marker date="1495934006593" expanded="false" signature="27:95" ph="..." />
+            <marker date="1495934006593" expanded="true" signature="240:420" ph="{...}" />
+            <marker date="1495934006593" expanded="false" signature="472:483" ph=" { " />
+            <marker date="1495934006593" expanded="false" signature="523:529" ph=" }" />
+            <marker date="1495934006593" expanded="false" signature="573:584" ph=" { " />
+            <marker date="1495934006593" expanded="false" signature="597:603" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Quad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <marker date="1495913103713" expanded="true" signature="179:285" ph="{...}" />
+            <marker date="1495913103713" expanded="false" signature="310:321" ph=" { " />
+            <marker date="1495913103713" expanded="false" signature="334:340" ph=" }" />
+            <marker date="1495913103713" expanded="false" signature="366:377" ph=" { " />
+            <marker date="1495913103713" expanded="false" signature="391:397" ph=" }" />
+            <marker date="1495913103713" expanded="false" signature="422:433" ph=" { " />
+            <marker date="1495913103713" expanded="false" signature="446:452" ph=" }" />
+            <marker date="1495913103713" expanded="false" signature="479:490" ph=" { " />
+            <marker date="1495913103713" expanded="false" signature="504:510" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/TestFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <marker date="1496010313734" expanded="false" signature="27:70" ph="..." />
+            <marker date="1496010313734" expanded="true" signature="72:117" ph="/**...*/" />
+            <marker date="1496010313734" expanded="true" signature="589:666" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <marker date="1495913103664" expanded="false" signature="27:64" ph="..." />
+            <marker date="1495913103664" expanded="true" signature="66:200" ph="/**...*/" />
+            <marker date="1495913103664" expanded="true" signature="652:772" ph="/**...*/" />
+            <marker date="1495913103664" expanded="false" signature="804:815" ph=" { " />
+            <marker date="1495913103664" expanded="false" signature="830:836" ph=" }" />
+            <marker date="1495913103664" expanded="true" signature="842:880" ph="/**...*/" />
+            <marker date="1495913103664" expanded="true" signature="903:911" ph="{...}" />
+            <marker date="1495913103664" expanded="true" signature="917:1049" ph="/**...*/" />
+            <marker date="1495913103664" expanded="true" signature="1079:1749" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Embedding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <marker date="1495913103668" expanded="false" signature="27:374" ph="..." />
+            <marker date="1495913103668" expanded="true" signature="376:471" ph="/**...*/" />
+            <marker date="1495913103668" expanded="true" signature="792:1507" ph="{...}" />
+            <marker date="1495913103668" expanded="true" signature="1513:1999" ph="/**...*/" />
+            <marker date="1495913103668" expanded="true" signature="2071:4120" ph="{...}" />
+            <marker date="1495913103668" expanded="true" signature="3048:3157" ph="//..." />
+            <marker date="1495913103668" expanded="true" signature="4126:4283" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="4323:4334" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="4371:4377" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="4383:4484" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="4506:4517" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="4543:4549" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="4555:4674" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="4719:4730" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="4758:4764" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="4770:4893" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="4925:4936" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="4964:4970" ph=" }" />
+            <marker date="1495913103668" expanded="false" signature="5026:5037" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="5067:5073" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="5079:5270" ph="/**...*/" />
+            <marker date="1495913103668" expanded="true" signature="5312:5483" ph="{...}" />
+            <marker date="1495913103668" expanded="true" signature="5489:5630" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="5675:5686" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="5721:5727" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="5733:5873" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="5916:5927" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="5960:5966" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="5972:6156" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="6203:6214" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="6251:6257" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="6263:6365" ph="/**...*/" />
+            <marker date="1495913103668" expanded="false" signature="6396:6407" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="6435:6441" ph=" }" />
+            <marker date="1495913103668" expanded="false" signature="6476:6487" ph=" { " />
+            <marker date="1495913103668" expanded="false" signature="6508:6514" ph=" }" />
+            <marker date="1495913103668" expanded="true" signature="6520:6658" ph="/**...*/" />
+            <marker date="1495913103668" expanded="true" signature="6720:6991" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Learner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <marker date="1495913103678" expanded="false" signature="27:129" ph="..." />
+            <marker date="1495913103678" expanded="true" signature="131:216" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Learning2Rank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+          <folding>
+            <marker date="1495934006582" expanded="false" signature="27:328" ph="..." />
+            <marker date="1495934006582" expanded="true" signature="330:426" ph="/**...*/" />
+            <marker date="1495934006582" expanded="true" signature="461:794" ph="/**...*/" />
+            <marker date="1495934006582" expanded="true" signature="915:1648" ph="{...}" />
+            <marker date="1495934006582" expanded="true" signature="915:1935" ph="{...}" />
+            <marker date="1495934006582" expanded="true" signature="1941:2108" ph="/**...*/" />
+            <marker date="1495934006582" expanded="true" signature="2238:3314" ph="{...}" />
+            <marker date="1495934006582" expanded="false" signature="2395:2418" ph="&lt;~&gt;" />
+            <marker date="1495934006582" expanded="true" signature="3156:3314" ph="{...}" />
+            <marker date="1495934006582" expanded="true" signature="3321:3438" ph="/**...*/" />
+            <marker date="1495934006582" expanded="true" signature="3545:4264" ph="{...}" />
+            <marker date="1495934006582" expanded="true" signature="4328:6402" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="324" column="59" lean-forward="false" selection-start-line="324" selection-start-column="59" selection-end-line="324" selection-end-column="59" />
+          <folding>
+            <marker date="1496018730513" expanded="false" signature="27:491" ph="..." />
+            <marker date="1496018730513" expanded="true" signature="594:719" ph="/**...*/" />
+            <marker date="1496018730513" expanded="true" signature="822:3693" ph="{...}" />
+            <marker date="1496018730513" expanded="false" signature="879:902" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="true" signature="3699:3817" ph="/**...*/" />
+            <marker date="1496018730513" expanded="true" signature="3922:5242" ph="{...}" />
+            <marker date="1496018730513" expanded="false" signature="3985:4014" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="true" signature="5248:5442" ph="/**...*/" />
+            <marker date="1496018730513" expanded="true" signature="5626:8119" ph="{...}" />
+            <marker date="1496018730513" expanded="false" signature="5780:5791" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="false" signature="6290:6314" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="false" signature="6430:6453" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="true" signature="8125:8279" ph="/**...*/" />
+            <marker date="1496018730513" expanded="true" signature="8342:8821" ph="{...}" />
+            <marker date="1496018730513" expanded="true" signature="8828:8985" ph="/**...*/" />
+            <marker date="1496018730513" expanded="true" signature="9074:12326" ph="{...}" />
+            <marker date="1496018730513" expanded="false" signature="9212:9241" ph="&lt;~&gt;" />
+            <marker date="1496018730513" expanded="true" signature="9254:9335" ph="//..." />
+            <marker date="1496018730513" expanded="true" signature="10145:10300" ph="//..." />
+            <marker date="1496018730513" expanded="true" signature="12371:12521" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/PointwiseLearner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <marker date="1496010313726" expanded="true" signature="27:380" ph="..." />
+            <marker date="1496010313726" expanded="true" signature="382:472" ph="/**...*/" />
+            <marker date="1496010313726" expanded="true" signature="651:2964" ph="{...}" />
+            <marker date="1496010313726" expanded="true" signature="1432:1443" ph="&lt;~&gt;" />
+            <marker date="1496010313726" expanded="true" signature="3030:3322" ph="{...}" />
+            <marker date="1496010313726" expanded="true" signature="3475:5729" ph="{...}" />
+            <marker date="1496010313726" expanded="true" signature="4044:4075" ph="&lt;~&gt;" />
+            <marker date="1496010313726" expanded="true" signature="4215:4226" ph="&lt;~&gt;" />
+            <marker date="1496010313726" expanded="true" signature="5826:7296" ph="{...}" />
+            <marker date="1496010313726" expanded="true" signature="5944:5967" ph="&lt;~&gt;" />
+            <marker date="1496010313726" expanded="true" signature="6088:6112" ph="&lt;~&gt;" />
+            <marker date="1496010313726" expanded="true" signature="6741:6893" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs276/pa4/Feature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#2358#2374#0" expanded="true" />
           </folding>
         </state>
       </provider>
