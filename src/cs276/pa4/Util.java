@@ -172,7 +172,7 @@ public class Util {
             Map<Query, List<Document>> data_map = Util.loadTrainData(train_data_file);
 
             Feature feature = new Feature(idfs);
-      
+
       /* Add data */
             for (Query query : data_map.keySet()) {
                 index_map.put(query_counter, new ArrayList<Integer>());
@@ -195,7 +195,7 @@ public class Util {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     /* Conduct standardization on X */
         Standardize filter = new Standardize();
 //    Normalize filter = new Normalize(); filter.setScale(2.0); filter.setTranslation(-1.0); // scale values to [-1, 1]
@@ -328,6 +328,26 @@ public class Util {
 
         }
         return tfs;
+    }
+
+    public static Map<Query, List<Document>> loadTrainData_helper(String train_data_file) {
+        Map<Query, List<Document>> map  = null;
+        try {
+            map = loadTrainData(train_data_file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public static Map<String, Map<String, Double>> loadRelData_helper(String train_rel_file) {
+        Map<String, Map<String, Double>> map = null;
+        try {
+            map = Util.loadRelData(train_rel_file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 
     public static void main(String[] args) {
