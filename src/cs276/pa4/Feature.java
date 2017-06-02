@@ -1,16 +1,13 @@
 package cs276.pa4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Feature {
 
     public static boolean isSublinearScaling = true;
     private Parser parser = new Parser();
-    double smoothingBodyLength = 16000;
+    double smoothingBodyLength = 800;
 
     Map<String, Double> idfs;
 

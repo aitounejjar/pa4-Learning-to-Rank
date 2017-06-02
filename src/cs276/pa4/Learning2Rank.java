@@ -1,5 +1,8 @@
 package cs276.pa4;
 
+import weka.classifiers.Classifier;
+import weka.core.Instances;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,9 +12,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import weka.classifiers.Classifier;
-import weka.core.Instances;
 
 /**
  * Main entry-point of PA4
@@ -43,16 +43,16 @@ public class Learning2Rank {
             learner = new PairwiseLearner(isLinearKernel);
         } else if (task == 3) {
       
-      /* 
-       * @TODO: Your code here, add more features 
-       * */
-            System.err.println("Task 3");
+          /*
+           * @TODO: Your code here, add more features
+           * */
+            learner = new Task3Learner(true);
 
         } else if (task == 4) {
       
-      /* 
-       * @TODO: Your code here, extra credit 
-       * */
+          /*
+           * @TODO: Your code here, extra credit
+           * */
             System.err.println("Extra credit");
 
         }
@@ -86,10 +86,10 @@ public class Learning2Rank {
             learner = new PairwiseLearner(isLinearKernel);
         } else if (task == 3) {
     
-          /*
-           * @TODO: Your code here, add more features
-           * */
-                System.err.println("Task 3");
+              /*
+               * @TODO: Your code here, add more features
+               * */
+              learner = new Task3Learner(true);
 
         } else if (task == 4) {
        
@@ -112,8 +112,7 @@ public class Learning2Rank {
 
     /**
      * Output the ranking results in expected format
-     *
-     * @param ranked_queries
+     * @param queryRankings
      * @param ps
      */
     public static void writeRankedResultsToFile(Map<Query, List<Document>> queryRankings, PrintStream ps) {

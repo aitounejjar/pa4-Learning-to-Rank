@@ -2,7 +2,6 @@ package cs276.pa4;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.functions.LinearRegression;
-import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -43,16 +42,8 @@ public class PointwiseLearner extends Learner {
          */
 
         Instances dataset = null;
-    
-        /* --------------------- Build attributes list --------------------- */
-        ArrayList<Attribute> attributes = new ArrayList<Attribute>();
-        attributes.add(new Attribute("url_w"));
-        attributes.add(new Attribute("title_w"));
-        attributes.add(new Attribute("body_w"));
-        attributes.add(new Attribute("header_w"));
-        attributes.add(new Attribute("anchor_w"));
-        attributes.add(new Attribute("relevance_score"));
-        dataset = new Instances("train_dataset", attributes, 0);
+
+        dataset = new Instances("train_dataset", createAttributes(false, "relevance_score"), 0);
     
         /* --------------------- Add data --------------------- */
 
@@ -123,15 +114,7 @@ public class PointwiseLearner extends Learner {
         Instances dataset = null;
         Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
 
-        /* --------------------- Build attributes list --------------------- */
-        ArrayList<Attribute> attributes = new ArrayList<Attribute>();
-        attributes.add(new Attribute("url_w"));
-        attributes.add(new Attribute("title_w"));
-        attributes.add(new Attribute("body_w"));
-        attributes.add(new Attribute("header_w"));
-        attributes.add(new Attribute("anchor_w"));
-        attributes.add(new Attribute("relevance_score"));
-        dataset = new Instances("train_dataset", attributes, 0);
+        dataset = new Instances("train_dataset", createAttributes(false, "relevance_score"), 0);
 
         /* --------------------- Add data --------------------- */
         // create a five-dimensional vector of tf-idf scores, for each query document pair

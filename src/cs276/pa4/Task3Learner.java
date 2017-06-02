@@ -1,11 +1,9 @@
 package cs276.pa4;
 
 import weka.classifiers.Classifier;
-import weka.classifiers.functions.LibSVM;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
-import weka.core.SelectedTag;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,48 +13,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Implements Pairwise learner that can be used to train SVM
- */
-public class PairwiseLearner extends Learner {
-    private LibSVM model;
+@SuppressWarnings("Duplicates")
+public class Task3Learner extends PairwiseLearner {
 
-    public PairwiseLearner(boolean isLinearKernel) {
-        try {
-            model = new LibSVM();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    // private static data
+    private static final String PDF_FEATURE_ID = "isPdf_w";
+    private static final String BM25_FEATURE_ID = "BM25_w";
 
-        if (isLinearKernel) {
-            model.setKernelType(new SelectedTag(LibSVM.KERNELTYPE_LINEAR, LibSVM.TAGS_KERNELTYPE));
-        }
+    // constructor(s)
+
+    public Task3Learner(boolean isLinearKernel) {
+        super(isLinearKernel);
     }
 
-    public PairwiseLearner(double C, double gamma, boolean isLinearKernel) {
-        try {
-            model = new LibSVM();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        model.setCost(C);
-        model.setGamma(gamma); // only matter for RBF kernel
-        if (isLinearKernel) {
-            model.setKernelType(new SelectedTag(LibSVM.KERNELTYPE_LINEAR, LibSVM.TAGS_KERNELTYPE));
-        }
+    public Task3Learner(double C, double gamma, boolean isLinearKernel) {
+        super(C, gamma, isLinearKernel);
     }
+
+    // overridden method(s)
 
     @Override
     public Instances extractTrainFeatures(String train_data_file, String train_rel_file, Map<String, Double> idfs) {
-        /*
-         * @TODO: Your code here:
-         * Get signal file
-         * Construct output dataset of type Instances
-         * Add new attribute to store relevance in the train dataset
-         * Populate data
-         */
-
 
         Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(train_data_file);
 
@@ -68,7 +45,7 @@ public class PairwiseLearner extends Learner {
          * object, replace with your implementation.
          */
 
-        Instances train_dataset = new Instances("train_data_set", createAttributes(true), 0);
+        Instances train_dataset = new Instances("train_data_set", createAttributes(true, BM25_FEATURE_ID), 0);
 
         // compute the differences ...
         Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
@@ -88,6 +65,12 @@ public class PairwiseLearner extends Learner {
                     // -- compute the diff between the previous two vectors
                     double[] difference = compute_difference(tf_idf_scores2, tf_idf_scores1);
 
+                    // -- isPdf feature
+                    double pdf1 = getPdfValue(d1);
+                    double pdf2 = getPdfValue(d2);
+
+                    double[] augmented_difference = augmentArray(difference, pdf2-pdf1);
+
                     // -- compare the relevance score to decide the : diff[5]
 
                     // -- get the relevance same way I did for task1:
@@ -106,9 +89,9 @@ public class PairwiseLearner extends Learner {
                         continue;
                     }
 
-                    Instance instance = new DenseInstance(1.0, difference);
+                    Instance instance = new DenseInstance(1.0, augmented_difference);
                     instance.insertAttributeAt(instance.numAttributes());
-                    instance.setValue(train_dataset.attribute(instance.numAttributes() - 1), documentClass);
+                    instance.setValue( train_dataset.attribute(instance.numAttributes() - 1), documentClass );
                     train_dataset.add(instance);
 
                 }
@@ -119,43 +102,24 @@ public class PairwiseLearner extends Learner {
         train_dataset.setClassIndex(train_dataset.numAttributes() - 1);
 
         return train_dataset;
-
-    }
-
-    @Override
-    public Classifier training(Instances dataset) {
-        /*
-         * @TODO: Your code here
-         * Build classifier
-         */
-        try {
-            model.buildClassifier(dataset);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return model;
     }
 
     @Override
     public TestFeatures extractTestFeatures(String test_data_file, Map<String, Double> idfs) {
-
-        /*
-         * @TODO: Your code here
-         * Use this to build the test features that will be used for testing
-         */
-
         Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(test_data_file);
 
-        Instances dataset = new Instances("test_dataset", createAttributes(true), 0);
+        Instances dataset = new Instances("test_dataset", createAttributes(true, BM25_FEATURE_ID), 0);
         Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
         for (Query q : trainData.keySet()) {
             index_map.put(q, new HashMap<Document, Integer>());
             for (Document d : trainData.get(q)) {
+
+
                 // tf-idf scores of the 5 fields
                 Feature feature = new Feature(idfs);
                 double[] tf_idf_scores = feature.extractFeatureVector(d, q);
-                dataset.add(new DenseInstance(1.0, tf_idf_scores));
+                double[] augmented_array = augmentArray(tf_idf_scores, getBM25Value());
+                dataset.add(new DenseInstance(1.0, augmented_array));
                 index_map.get(q).put(d, dataset.size()-1);
             }
         }
@@ -166,12 +130,7 @@ public class PairwiseLearner extends Learner {
     }
 
     @Override
-    // this is where the comparison happens
     public Map<Query, List<Document>> testing(TestFeatures tf, Classifier model) {
-        /*
-         * @TODO: Your code here
-         */
-
         Map<Query, List<Document>> rankedDocs = new HashMap<Query, List<Document>>();
 
         for (Query q : tf.index_map.keySet()) {
@@ -198,7 +157,7 @@ public class PairwiseLearner extends Learner {
                     double[] difference = compute_difference(vector2, vector1);
                     Instance instance = new DenseInstance(1.0, difference);
 
-                    Instances instances = new Instances("comparison_dataset", createAttributes(true), 0);
+                    Instances instances = new Instances("comparison_dataset", createAttributes(true, BM25_FEATURE_ID), 0);
                     instances.setClassIndex(instances.numAttributes()-1);
                     instance.setDataset(instances);
 
@@ -219,4 +178,26 @@ public class PairwiseLearner extends Learner {
         return rankedDocs;
     }
 
+    // private method(s)
+
+    private double[] augmentArray(double[] arr, double ... values) {
+        int size = arr.length + values.length;
+        double[] augmented = new double[size];
+        // copy the passed array to the new
+        System.arraycopy(arr, 0, augmented, 0, arr.length);
+        // append the extra values
+        int startIndex = arr.length;
+        for (int i=startIndex; i<values.length; ++i) {
+            augmented[i] = values[i];
+        }
+        return augmented;
+    }
+
+    private double getPdfValue(Document d) {
+        return d.url.toLowerCase().endsWith(".html") ? 1.0 : 1.0;
+    }
+
+    private double getBM25Value() {
+        return 0.0;
+    }
 }
