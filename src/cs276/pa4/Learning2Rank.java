@@ -17,6 +17,7 @@ import java.util.Map;
  * Main entry-point of PA4
  * Version 2.0: includes idfs_file as a command line argument
  */
+@SuppressWarnings("Duplicates")
 public class Learning2Rank {
 
     /**
@@ -37,16 +38,15 @@ public class Learning2Rank {
         Learner learner = null;
 
         if (task == 1) {
-            learner = new PointwiseLearner();
+            learner = getTask1Learner();
         } else if (task == 2) {
-            boolean isLinearKernel = true;
-            learner = new PairwiseLearner(isLinearKernel);
+            learner = getTask2Learner();
         } else if (task == 3) {
       
           /*
            * @TODO: Your code here, add more features
            * */
-            learner = new Task3Learner(true);
+          learner = getTask3Learner();
 
         } else if (task == 4) {
       
@@ -80,16 +80,15 @@ public class Learning2Rank {
         Map<Query, List<Document>> ranked_queries = new HashMap<Query, List<Document>>();
         Learner learner = null;
         if (task == 1) {
-            learner = new PointwiseLearner();
+            learner = getTask1Learner();
         } else if (task == 2) {
-            boolean isLinearKernel = true;
-            learner = new PairwiseLearner(isLinearKernel);
+            learner = getTask2Learner();
         } else if (task == 3) {
     
               /*
                * @TODO: Your code here, add more features
                * */
-              learner = new Task3Learner(true);
+              learner = getTask3Learner();
 
         } else if (task == 4) {
        
@@ -181,5 +180,27 @@ public class Learning2Rank {
             }
         }
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // private method(s)
+    // -----------------------------------------------------------------------------------------------------------------
+
+    private static final double C     = Math.pow(2, -2);
+    private static final double GAMMA = Math.pow(2, -4);
+
+    private static PointwiseLearner getTask1Learner() {
+        return new PointwiseLearner();
+    }
+    
+    private static PairwiseLearner getTask2Learner() {
+        //return new PairwiseLearner(true);
+        return new PairwiseLearner(C, GAMMA, false);
+    }
+    
+    private static Task3Learner getTask3Learner() {
+        //return new Task3Learner(true);
+        return new Task3Learner(C, GAMMA, false);
+    }
+    
 }
 

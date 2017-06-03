@@ -1,5 +1,12 @@
 package cs276.pa4;
 
+import weka.core.Attribute;
+import weka.core.DenseInstance;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Standardize;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,15 +18,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import weka.core.Attribute;
-import weka.core.DenseInstance;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.Standardize;
-
 public class Util {
     static String[] TFTYPES = {"url", "title", "body", "header", "anchor"};
+    public static final String UNSEEN_TERM_ID = "unseen term id";
 
     /**
      * Load the training data file
@@ -228,6 +229,11 @@ public class Util {
             ioe.printStackTrace();
             return null;
         }
+
+        // added idf score of unseen terms
+        double unseenIdfScore = 1.0 / ( 98998.0 + 1.0);
+        termDocCount.put(UNSEEN_TERM_ID, unseenIdfScore);
+
         return termDocCount;
     }
 

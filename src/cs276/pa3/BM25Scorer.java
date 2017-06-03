@@ -313,14 +313,17 @@ public class BM25Scorer extends AScorer {
      * @return the similarity score
      */
     public double getSimScore(Document d, Query q) {
-        Map<String, Map<String, Double>> tfs = this.getDocTermFreqs(d, q);
-        this.normalizeTFs(tfs, d, q);
+        Map<String, Map<String, Double>> tfs = getDocTermFreqs(d, q);
+
+        // (Q): do we still need this normalization ?
+        //this.normalizeTFs(tfs, d, q);
+
         Map<String, Double> tfQuery = getQueryFreqs(q);
 
         // Write out the tuned BM25 parameters
         // This is only used for grading purposes.
         // You should NOT modify the writeParaValues method.
-        writeParaValues("bm25Para.txt");
+        //writeParaValues("bm25Para.txt");
         return getNetScore(tfs, q, tfQuery, d);
     }
 
