@@ -193,13 +193,13 @@ public class Learning2Rank {
     }
     
     private static PairwiseLearner getTask2Learner() {
-        //return new PairwiseLearner(true);
-        return new PairwiseLearner(C, GAMMA, false);
+        return new PairwiseLearner(true);
+        //return new PairwiseLearner(C, GAMMA, false);
     }
     
     private static Task3Learner getTask3Learner() {
-        //return new Task3Learner(true);
-        return new Task3Learner(C, GAMMA, false);
+        return new Task3Learner(true);
+        //return new Task3Learner(C, GAMMA, false);
     }
     
 }

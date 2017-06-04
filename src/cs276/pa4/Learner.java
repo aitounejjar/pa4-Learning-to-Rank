@@ -30,7 +30,7 @@ public abstract class Learner {
 
     public Instances standardize(Instances dataset) {
         Standardize filter = new Standardize();
-        // Normalize filter = new Normalize(); filter.setScale(2.0); filter.setTranslation(-1.0); // scale values to [-1, 1]
+        //Normalize filter = new Normalize(); filter.setScale(2.0); filter.setTranslation(-1.0); // scale values to [-1, 1]
         Instances standardizedInstance = null;
         try {
             filter.setInputFormat(dataset);
@@ -72,6 +72,25 @@ public abstract class Learner {
         }
 
         return attributes;
+    }
+
+    /**
+     * @param list list to be converted to an array of doubles
+     * @return array of doubles
+     */
+    public double[] toArray(ArrayList<Double> list) {
+
+        if (list == null || list.isEmpty()) {
+            return new double[0];
+        }
+
+        double[] d = new double[list.size()];
+
+        for (int i=0; i<list.size(); ++i) {
+            d[i] = list.get(i);
+        }
+
+        return d;
     }
 
 }

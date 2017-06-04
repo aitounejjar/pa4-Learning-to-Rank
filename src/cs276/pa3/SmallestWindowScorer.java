@@ -1,6 +1,5 @@
 package cs276.pa3;
 
-import com.sun.tools.javac.util.Assert;
 import cs276.pa4.Document;
 import cs276.pa4.Pair;
 import cs276.pa4.Query;
@@ -198,10 +197,10 @@ public class SmallestWindowScorer extends CosineSimilarityScorer {
         for (List<Integer> list : positions) {
             Set<Integer> set = new HashSet<>(list);
             list = new ArrayList<>(set);
-            if (set.size() != list.size()){
+            /*if (set.size() != list.size()){
                 Assert.check(set.size() == list.size(), "List of positions contained duplicated. List Size: "
                         + list.size() + ", Set Size: " + set.size() + "\n" + list.toString());
-            }
+            }*/
 
             Collections.sort(list);
             int min = list.get(0);

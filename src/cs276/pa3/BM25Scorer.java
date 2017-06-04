@@ -106,6 +106,7 @@ public class BM25Scorer extends AScorer {
 
                 // header
                 List<String> headers = document.headers;
+                lengths.get(document).put("header", 0.0);
                 if (headers != null) {
                     int numHeaders = 0; // num of headers in the current document
                     for (String header : headers) {
@@ -119,6 +120,7 @@ public class BM25Scorer extends AScorer {
 
                 // anchor
                 Map<String, Integer> anchors = document.anchors;
+                lengths.get(document).put("anchor", 0.0);
                 if (anchors != null) {
                     int numAnchors = 0; // num of anchors in the current document
                     for (String anchor : anchors.keySet()) {
@@ -131,6 +133,7 @@ public class BM25Scorer extends AScorer {
                 }
 
                 // title
+                lengths.get(document).put("title", 0.0);
                 if (document.title != null) {
                     String[] matches = document.title.split("\\s+");
                     titleWordsCount += matches.length;
@@ -139,6 +142,7 @@ public class BM25Scorer extends AScorer {
                 }
 
                 // url
+                lengths.get(document).put("url", 0.0);
                 if (document.url != null) {
                     String[] matches = document.url.split("\\W+");
                     urlWordsCount += matches.length;
@@ -316,7 +320,7 @@ public class BM25Scorer extends AScorer {
         Map<String, Map<String, Double>> tfs = getDocTermFreqs(d, q);
 
         // (Q): do we still need this normalization ?
-        //this.normalizeTFs(tfs, d, q);
+        this.normalizeTFs(tfs, d, q);
 
         Map<String, Double> tfQuery = getQueryFreqs(q);
 
@@ -355,7 +359,7 @@ public class BM25Scorer extends AScorer {
     }
 
     private double Vj(Document d) {
-        return Math.log(d.page_rank);
+        return Math.log(d.page_rank + pageRankLambdaPrime);
     }
 
 }

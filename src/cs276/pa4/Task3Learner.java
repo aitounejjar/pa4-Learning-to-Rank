@@ -26,8 +26,10 @@ public class Task3Learner extends PairwiseLearner {
     // enabling/disabling features
     // -----------------------------------------------------------------------------------------------------------------
     private static final boolean BM25_FEATURE_ENABLED            = true;
-    private static final boolean SMALLEST_WINDOW_FEATURE_ENABLED = true;
-    private static final boolean PAGE_RANK_FEATURE_ENABLED       = true;
+    private static final boolean SMALLEST_WINDOW_FEATURE_ENABLED = false;
+    private static final boolean PAGE_RANK_FEATURE_ENABLED       = false;
+
+
 
     // -----------------------------------------------------------------------------------------------------------------
     // constructor(s)
@@ -49,6 +51,8 @@ public class Task3Learner extends PairwiseLearner {
     @Override
     public Instances extractTrainFeatures(String train_data_file, String train_rel_file, Map<String, Double> idfs) {
 
+        Feature feature = new Feature(idfs);
+
         Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(train_data_file);
 
         Map<String, Map<String, Double>> relData = Util.loadRelData_helper(train_rel_file);
@@ -65,11 +69,72 @@ public class Task3Learner extends PairwiseLearner {
         bm25Scorer = new BM25Scorer(idfs, queryDict);
         smallestWindowScorer = new SmallestWindowScorer(idfs, queryDict);
 
+        Instances standardized = new Instances("normalized", createAttributes_helper(), 0);
         Instances train_dataset = new Instances("train_data_set", createAttributes_helper(), 0);
+        /* --------------------- Set last attribute as target --------------------- */
+        train_dataset.setClassIndex(train_dataset.numAttributes() - 1);
 
-        // compute the differences ...
+        // loop to standardize
         Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
         for (Query q : trainData.keySet()) {
+            Map<Document, Integer> docIndexes = new HashMap<Document, Integer>();
+            for (Document d : trainData.get(q)) {
+                double[] basic_features = feature.extractFeatureVector(d, q);
+                double[] extra_features = toArray(getExtraFeatures(q, d));
+                double[] features = augmentArray(basic_features, extra_features);
+                Instance inst = new DenseInstance(1.0, features);
+                standardized.add(inst);
+                docIndexes.put(d, standardized.size());
+            }
+            index_map.put(q, docIndexes);
+        }
+
+        standardized = standardize(standardized);
+
+        // compute the differences ...
+
+        for (Query q : trainData.keySet()) {
+            for (Document d1 : trainData.get(q)) {
+                for (Document d2 : trainData.get(q)) {
+
+                    // -- get the relevance :
+                    double rel1 = relData.get(q.query).get(d1.url);
+                    double rel2 = relData.get(q.query).get(d2.url);
+
+                    if (d1.equals(d2) || rel1 == rel2) {
+                        continue;
+                    }
+
+                    double[] d1_vector = standardized.get(index_map.get(q).get(d1)-1).toDoubleArray();
+                    double[] d2_vector = standardized.get(index_map.get(q).get(d2)-1).toDoubleArray();
+
+                    // -- compare relevances to decide whether d1 is better than d2,
+                    //    if (d1>d2) then d1 is gonna be "positive", else d1 is negative.
+
+                    String documentClass = (rel1 > rel2) ? "positive" : "negative";
+
+                    double[] difference = compute_difference(d1_vector, d2_vector);
+                    Instance instance = new DenseInstance(1.0, difference);
+                    instance.insertAttributeAt(instance.numAttributes());
+                    instance.setValue(train_dataset.attribute(instance.numAttributes() - 1), documentClass);
+                    train_dataset.add(instance);
+
+                }
+            }
+        }
+
+        return train_dataset;
+    }
+
+    @Override
+    public TestFeatures extractTestFeatures(String test_data_file, Map<String, Double> idfs) {
+
+        Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(test_data_file);
+
+        Instances test_dataset = new Instances("test_dataset", createAttributes_helper(), 0);
+        Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
+        for (Query q : trainData.keySet()) {
+            index_map.put(q, new HashMap<Document, Integer>());
             for (Document d1 : trainData.get(q)) {
                 for (Document d2 : trainData.get(q)) {
 
@@ -77,130 +142,37 @@ public class Task3Learner extends PairwiseLearner {
                         continue;
                     }
 
+                    test_dataset = standardize(test_dataset);
+
                     // tf-idf scores of the 5 fields
                     Feature feature = new Feature(idfs);
                     double[] tf_idf_scores1 = feature.extractFeatureVector(d1, q);
                     double[] tf_idf_scores2 = feature.extractFeatureVector(d2, q);
 
-                    // -- compute the diff between the previous two vectors
+                    // compute the diff between the previous two vectors
                     double[] difference1 = compute_difference(tf_idf_scores2, tf_idf_scores1);
 
                     // we compute the -difference to balance classes
                     double[] difference2 = compute_difference(tf_idf_scores1, tf_idf_scores2);
 
-                    // -- isPdf feature
-                    //double pdf1 = getPdfValue(d1);
-                    //double pdf2 = getPdfValue(d2);
-
-                    ArrayList<Double> extra = new ArrayList<>();
-                    ArrayList<Double> extraBalancer = new ArrayList<>();
-
-                    if (BM25_FEATURE_ENABLED) {
-                        // -- bm25 feature
-                        double score1 = getBM25Score(q, d1);
-                        double score2 = getBM25Score(q, d2);
-                        double diff = score2 - score1;
-                        extra.add(diff);
-                        extraBalancer.add(-diff);
-                    }
-
-                    if (SMALLEST_WINDOW_FEATURE_ENABLED) {
-                        double score1 = getSmallestWindowScore(q, d1);
-                        double score2 = getSmallestWindowScore(q, d2);
-                        double diff = score2 - score1;
-                        extra.add(diff);
-                        extraBalancer.add(-diff);
-                    }
-
-                    if (PAGE_RANK_FEATURE_ENABLED) {
-                        // -- pagerank feature
-                        double delta_pagerank = d2.page_rank - d1.page_rank;
-                        extra.add(delta_pagerank);
-                        extraBalancer.add(-delta_pagerank);
-                    }
-
+                    // get extra features, i.e. bm25, smallestWindow, etc.
+                    Pair<ArrayList<Double>, ArrayList<Double>> pair = getExtraFeatures(q, d1, d2);
+                    ArrayList<Double> extra = pair.getFirst();
+                    ArrayList<Double> extraBalancer = pair.getSecond();
 
                     double[] augmented_difference1 = augmentArray(difference1, toArray(extra));
                     double[] augmented_difference2 = augmentArray(difference2, toArray(extraBalancer));
 
-                    // -- compare the relevance score to decide the : diff[5]
-
-                    // -- get the relevance same way I did for task1:
-                    double rel1 = relData.get(q.query).get(d1.url);
-                    double rel2 = relData.get(q.query).get(d2.url);
-
-                    // -- compare and decide whether d1 is better than d2,
-                    //    if (d1>d2) then d1 is gonna be "positive", else d1 is negative.
-                    String documentClass = "";
-                    String balancingClass = "";
-                    if (rel1 > rel2) {
-                        documentClass = "positive";
-                        balancingClass = "negative";
-                    } else if (rel1 < rel2) {
-                        documentClass = "negative";
-                        balancingClass = "positive";
-                    } else {
-                        // do nothing
-                        continue;
-                    }
-
                     // create the instance and add in the training set
-                    Instance instance1 = new DenseInstance(1.0, augmented_difference1);
-                    instance1.insertAttributeAt(instance1.numAttributes());
-                    instance1.setValue( train_dataset.attribute(instance1.numAttributes() - 1), documentClass );
-                    train_dataset.add(instance1);
-
-                    // balancing
-                    Instance instance2 = new DenseInstance(1.0, augmented_difference2);
-                    instance2.insertAttributeAt(instance2.numAttributes());
-                    instance2.setValue( train_dataset.attribute(instance2.numAttributes() - 1), balancingClass );
-                    train_dataset.add(instance2);
+                    test_dataset.add(new DenseInstance(1.0, augmented_difference1));
+                    index_map.get(q).put(d1, test_dataset.size()-1);
 
                 }
+
             }
         }
 
-        /* --------------------- Set last attribute as target --------------------- */
-        train_dataset.setClassIndex(train_dataset.numAttributes() - 1);
-
-        return train_dataset;
-    }
-
-    @Override
-    public TestFeatures extractTestFeatures(String test_data_file, Map<String, Double> idfs) {
-        Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(test_data_file);
-
-        Instances dataset = new Instances("test_dataset", createAttributes_helper(), 0);
-        Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
-        for (Query q : trainData.keySet()) {
-            index_map.put(q, new HashMap<Document, Integer>());
-            for (Document d : trainData.get(q)) {
-
-                // tf-idf scores of the 5 fields
-                Feature feature = new Feature(idfs);
-                double[] tf_idf_scores = feature.extractFeatureVector(d, q);
-
-                ArrayList<Double> extra = new ArrayList<>();
-
-                if (BM25_FEATURE_ENABLED) {
-                    extra.add(getBM25Score(q, d));
-                }
-
-                if (SMALLEST_WINDOW_FEATURE_ENABLED) {
-                    extra.add(getSmallestWindowScore(q, d));
-                }
-
-                if (PAGE_RANK_FEATURE_ENABLED) {
-                    extra.add((double)d.page_rank);
-                }
-
-                double[] augmented_array = augmentArray(tf_idf_scores, toArray(extra));
-                dataset.add(new DenseInstance(1.0, augmented_array));
-                index_map.get(q).put(d, dataset.size()-1);
-            }
-        }
-
-        Instances standardized = standardize(dataset);
+        Instances standardized = standardize(test_dataset);
 
         return new TestFeatures(standardized, index_map);
     }
@@ -244,7 +216,7 @@ public class Task3Learner extends PairwiseLearner {
                         ex.printStackTrace();
                     }
 
-                    return (guessedClass > 0) ? +1 : -1;
+                    return (guessedClass > 0) ? -1 : +1;
                 }
             });
 
@@ -275,8 +247,8 @@ public class Task3Learner extends PairwiseLearner {
 
         // append the extra values
         int startIndex = arr.length;
-        for (int i=startIndex; i<values.length; ++i) {
-            augmented[i] = values[i];
+        for (int i=0; i<values.length; ++i) {
+            augmented[startIndex+i] = values[i];
         }
 
         return augmented;
@@ -297,25 +269,6 @@ public class Task3Learner extends PairwiseLearner {
     }
 
     /**
-     * @param list list to be converted to an array of doubles
-     * @return array of doubles
-     */
-    private double[] toArray(ArrayList<Double> list) {
-
-        if (list == null || list.isEmpty()) {
-            return new double[0];
-        }
-
-        double[] d = new double[list.size()];
-
-        for (int i=0; i<list.size(); ++i) {
-            d[i] = list.get(i);
-        }
-
-        return d;
-    }
-
-    /**
      * builds a query dict that can be passed to public constructors of PA3 scorers
      * @param trainData training data
      * @return          map of the training data
@@ -324,10 +277,11 @@ public class Task3Learner extends PairwiseLearner {
         Map<Query, Map<String, Document>> queryDict = new HashMap<Query, Map<String, Document>>();
 
         for (Query q : trainData.keySet()) {
-
+            int counter = 0;
             Map<String, Document> map = new HashMap<String, Document>();
             for (Document d : trainData.get(q)) {
-                map.put(d.url, d);
+                map.put(counter+"|"+d.url, d);
+                counter++;
             }
             queryDict.put(q, map);
         }
@@ -338,6 +292,63 @@ public class Task3Learner extends PairwiseLearner {
     // -----------------------------------------------------------------------------------------------------------------
     // private method(s): scorers, i.e. these methods compute scores of the different features
     // -----------------------------------------------------------------------------------------------------------------
+
+    private Pair<ArrayList<Double>, ArrayList<Double>> getExtraFeatures(Query q, Document d1, Document d2) {
+
+        ArrayList<Double> values = new ArrayList<Double>();
+        ArrayList<Double> oppositeValues = new ArrayList<Double>();
+
+        if (BM25_FEATURE_ENABLED) {
+            // -- bm25 feature
+            double score1 = getBM25Score(q, d1);
+            double score2 = getBM25Score(q, d2);
+            double diff = score2 - score1;
+            values.add(diff);
+            oppositeValues.add(-diff);
+        }
+
+        if (SMALLEST_WINDOW_FEATURE_ENABLED) {
+            // -- smallest window feature
+            double score1 = getSmallestWindowScore(q, d1);
+            double score2 = getSmallestWindowScore(q, d2);
+            double diff = score2 - score1;
+            values.add(diff);
+            oppositeValues.add(-diff);
+        }
+
+        if (PAGE_RANK_FEATURE_ENABLED) {
+            // -- pagerank feature
+            double delta_pagerank = d2.page_rank - d1.page_rank;
+            values.add(delta_pagerank);
+            oppositeValues.add(-delta_pagerank);
+        }
+
+        return new Pair<ArrayList<Double>, ArrayList<Double>>(values, oppositeValues);
+
+    }
+
+    private ArrayList<Double> getExtraFeatures(Query q, Document d) {
+        ArrayList<Double> values = new ArrayList<Double>();
+
+        if (BM25_FEATURE_ENABLED) {
+            // -- bm25 feature
+            double score = getBM25Score(q, d);
+            values.add(score);
+        }
+
+        if (SMALLEST_WINDOW_FEATURE_ENABLED) {
+            // -- smallest window feature
+            double score = getSmallestWindowScore(q, d);
+            values.add(score);
+        }
+
+        if (PAGE_RANK_FEATURE_ENABLED) {
+            // -- pagerank feature
+            values.add((double)d.page_rank);
+        }
+
+        return values;
+    }
 
     /**
      * Returns the bm25 score of the (query,document) pair -- this uses PA3 code

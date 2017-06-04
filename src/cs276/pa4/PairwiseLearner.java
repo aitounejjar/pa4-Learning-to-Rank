@@ -62,49 +62,59 @@ public class PairwiseLearner extends Learner {
 
         Map<String, Map<String, Double>> relData = Util.loadRelData_helper(train_rel_file);
 
+        Feature feature = new Feature(idfs);
+
+        Instances standardized = new Instances("normalized", createAttributes(true), 0);
+        Instances train_dataset = new Instances("train_data_set", createAttributes(true), 0);
+        /* --------------------- Set last attribute as target --------------------- */
+        train_dataset.setClassIndex(train_dataset.numAttributes() - 1);
+
+        // loop to standardize
+        Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
+        for (Query q : trainData.keySet()) {
+            Map<Document, Integer> docIndexes = new HashMap<Document, Integer>();
+            for (Document d : trainData.get(q)) {
+                double[] features = feature.extractFeatureVector(d, q);
+                Instance inst = new DenseInstance(1.0, features);
+                standardized.add(inst);
+                docIndexes.put(d, standardized.size());
+            }
+            index_map.put(q, docIndexes);
+        }
+
+        standardized = standardize(standardized);
+
         /*
          * @TODO: Below is a piece of sample code to show
          * you the basic approach to construct a Instances
          * object, replace with your implementation.
          */
 
-        Instances train_dataset = new Instances("train_data_set", createAttributes(true), 0);
 
-        // compute the differences ...
-        Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
         for (Query q : trainData.keySet()) {
             for (Document d1 : trainData.get(q)) {
                 for (Document d2 : trainData.get(q)) {
 
-                    if (d1.equals(d2)) {
+                    // get the relevance
+                    double rel1 = relData.get(q.query).get(d1.url);
+                    double rel2 = relData.get(q.query).get(d2.url);
+
+                    if (d1.equals(d2) || rel1 == rel2) {
                         continue;
                     }
 
                     // tf-idf scores of the 5 fields
-                    Feature feature = new Feature(idfs);
-                    double[] tf_idf_scores1 = feature.extractFeatureVector(d1, q);
-                    double[] tf_idf_scores2 = feature.extractFeatureVector(d2, q);
+                    double[] tf_idf_scores1 = standardized.get(index_map.get(q).get(d1)-1).toDoubleArray();
+                    double[] tf_idf_scores2 = standardized.get(index_map.get(q).get(d2)-1).toDoubleArray();
 
                     // -- compute the diff between the previous two vectors
-                    double[] difference = compute_difference(tf_idf_scores2, tf_idf_scores1);
+                    double[] difference = compute_difference(tf_idf_scores1, tf_idf_scores2);
 
                     // -- compare the relevance score to decide the : diff[5]
 
-                    // -- get the relevance same way I did for task1:
-                    double rel1 = relData.get(q.query).get(d1.url);
-                    double rel2 = relData.get(q.query).get(d2.url);
-
                     // -- compare and decide whether d1 is better than d2,
                     //    if (d1>d2) then d1 is gonna be "positive", else d1 is negative.
-                    String documentClass = "";
-                    if (rel1 > rel2) {
-                        documentClass = "positive";
-                    } else if (rel1 < rel2) {
-                        documentClass = "negative";
-                    } else {
-                        // do nothing
-                        continue;
-                    }
+                    String documentClass = (rel1 > rel2) ? "positive" : "negative";
 
                     Instance instance = new DenseInstance(1.0, difference);
                     instance.insertAttributeAt(instance.numAttributes());
@@ -114,9 +124,6 @@ public class PairwiseLearner extends Learner {
                 }
             }
         }
-
-        /* --------------------- Set last attribute as target --------------------- */
-        train_dataset.setClassIndex(train_dataset.numAttributes() - 1);
 
         return train_dataset;
 
@@ -147,20 +154,36 @@ public class PairwiseLearner extends Learner {
 
         Map<Query, List<Document>> trainData  = Util.loadTrainData_helper(test_data_file);
 
-        Instances dataset = new Instances("test_dataset", createAttributes(true), 0);
+        Instances test_dataset = new Instances("test_dataset", createAttributes(true), 0);
+
         Map<Query, Map<Document, Integer>> index_map = new HashMap<Query, Map<Document, Integer>>();
         for (Query q : trainData.keySet()) {
             index_map.put(q, new HashMap<Document, Integer>());
-            for (Document d : trainData.get(q)) {
-                // tf-idf scores of the 5 fields
-                Feature feature = new Feature(idfs);
-                double[] tf_idf_scores = feature.extractFeatureVector(d, q);
-                dataset.add(new DenseInstance(1.0, tf_idf_scores));
-                index_map.get(q).put(d, dataset.size()-1);
+            for (Document d1 : trainData.get(q)) {
+                for (Document d2 : trainData.get(q)) {
+
+                    if (d1.equals(d2)) {
+                        continue;
+                    }
+
+                    // tf-idf scores of the 5 fields
+                    Feature feature = new Feature(idfs);
+                    double[] tf_idf_scores1 = feature.extractFeatureVector(d1, q);
+                    double[] tf_idf_scores2 = feature.extractFeatureVector(d2, q);
+
+                    // compute the diff between the previous two vectors
+                    double[] difference1 = compute_difference(tf_idf_scores2, tf_idf_scores1);
+
+                    // create the instance and add in the training set
+                    test_dataset.add(new DenseInstance(1.0, difference1));
+                    index_map.get(q).put(d1, test_dataset.size()-1);
+
+                }
+
             }
         }
 
-        Instances standardized = standardize(dataset);
+        Instances standardized = standardize(test_dataset);
 
         return new TestFeatures(standardized, index_map);
     }
@@ -209,7 +232,7 @@ public class PairwiseLearner extends Learner {
                         ex.printStackTrace();
                     }
 
-                    return (guessedClass > 0) ? +1 : -1;
+                    return (guessedClass > 0) ? -1 : +1;
                 }
             });
 
