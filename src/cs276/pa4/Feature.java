@@ -7,7 +7,7 @@ public class Feature {
 
     public static boolean isSublinearScaling = true;
     private Parser parser = new Parser();
-    double smoothingBodyLength = 2000;
+    double smoothingBodyLength = 2500;
 
     Map<String, Double> idfs;
 

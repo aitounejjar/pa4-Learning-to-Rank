@@ -256,7 +256,14 @@ public class BM25Scorer extends AScorer {
                 double numOccurrences = map.get(queryWord);
 
                 // length of the section in the document
-                double length = lengths.get(d).get(section);
+                double length = 0.0;
+                if (lengths.containsKey(d)) {
+                    // known issue:
+                    // ideally, we don't need to this check as document d must exist in the map, but because of
+                    // some bug that could very well be coming from our PA3 code, few queries that
+                    // has duplicate documents end up not being found in this map
+                    lengths.get(d).get(section);
+                }
 
                 // average length for the section
                 double averageLength = avgLengths.get(section);

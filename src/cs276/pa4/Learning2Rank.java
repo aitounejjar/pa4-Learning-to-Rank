@@ -185,21 +185,21 @@ public class Learning2Rank {
     // private method(s)
     // -----------------------------------------------------------------------------------------------------------------
 
-    private static final double C     = Math.pow(2, -2);
-    private static final double GAMMA = Math.pow(2, -4);
+    private static final double C     = Math.pow(2, 0);
+    private static final double GAMMA = Math.pow(2, -3);
 
     private static PointwiseLearner getTask1Learner() {
         return new PointwiseLearner();
     }
     
     private static PairwiseLearner getTask2Learner() {
-        return new PairwiseLearner(true);
-        //return new PairwiseLearner(C, GAMMA, false);
+        //return new PairwiseLearner(true);
+        return new PairwiseLearner(C, GAMMA, false);
     }
     
     private static Task3Learner getTask3Learner() {
-        return new Task3Learner(true);
-        //return new Task3Learner(C, GAMMA, false);
+        //return new Task3Learner(true);
+        return new Task3Learner(C, GAMMA, false);
     }
     
 }

@@ -28,11 +28,8 @@ public class Task3Learner extends PairwiseLearner {
     private static final boolean BM25_FEATURE_ENABLED            = false;
     private static final boolean SMALLEST_WINDOW_FEATURE_ENABLED = true;
     private static final boolean PAGE_RANK_FEATURE_ENABLED       = false;
-    private static final boolean PDF_FEATURE_ENABLED             = false;
+    private static final boolean PDF_FEATURE_ENABLED             = true;
     private static final boolean TILDA_FEATURE_ENABLED           = true;
-
-
-
 
     // -----------------------------------------------------------------------------------------------------------------
     // constructor(s)
