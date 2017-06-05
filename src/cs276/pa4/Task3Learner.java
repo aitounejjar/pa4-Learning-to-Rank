@@ -25,9 +25,12 @@ public class Task3Learner extends PairwiseLearner {
     // -----------------------------------------------------------------------------------------------------------------
     // enabling/disabling features
     // -----------------------------------------------------------------------------------------------------------------
-    private static final boolean BM25_FEATURE_ENABLED            = true;
-    private static final boolean SMALLEST_WINDOW_FEATURE_ENABLED = false;
+    private static final boolean BM25_FEATURE_ENABLED            = false;
+    private static final boolean SMALLEST_WINDOW_FEATURE_ENABLED = true;
     private static final boolean PAGE_RANK_FEATURE_ENABLED       = false;
+    private static final boolean PDF_FEATURE_ENABLED             = false;
+    private static final boolean TILDA_FEATURE_ENABLED           = true;
+
 
 
 
@@ -261,8 +264,10 @@ public class Task3Learner extends PairwiseLearner {
 
         ArrayList<String> list = new ArrayList<>();
         if (BM25_FEATURE_ENABLED)            list.add("bm25_w");
-        if (SMALLEST_WINDOW_FEATURE_ENABLED) list.add("smallestWindow_w");
-        if (PAGE_RANK_FEATURE_ENABLED)       list.add("pageRank_w");
+        if (SMALLEST_WINDOW_FEATURE_ENABLED) list.add("smallest_window_w");
+        if (PAGE_RANK_FEATURE_ENABLED)       list.add("page_rank_w");
+        if (PDF_FEATURE_ENABLED)             list.add("is_pdf_w");
+        if (TILDA_FEATURE_ENABLED)           list.add("has_tilda_w");
 
         String[] array = new String[list.size()];
         return createAttributes(true, list.toArray(array) );
@@ -323,6 +328,20 @@ public class Task3Learner extends PairwiseLearner {
             oppositeValues.add(-delta_pagerank);
         }
 
+        if (PDF_FEATURE_ENABLED) {
+            // -- pdf feature
+            double d = getPdfValue(d2) - getPdfValue(d1);
+            values.add(d);
+            oppositeValues.add(-d);
+        }
+
+        if (TILDA_FEATURE_ENABLED) {
+            // -- tilda feature
+            double d = getTildaValue(d2) - getTildaValue(d2);
+            values.add(d);
+            oppositeValues.add(-d);
+        }
+
         return new Pair<ArrayList<Double>, ArrayList<Double>>(values, oppositeValues);
 
     }
@@ -345,6 +364,16 @@ public class Task3Learner extends PairwiseLearner {
         if (PAGE_RANK_FEATURE_ENABLED) {
             // -- pagerank feature
             values.add((double)d.page_rank);
+        }
+
+        if (PDF_FEATURE_ENABLED) {
+            // -- pdf feature
+            values.add(getPdfValue(d));
+        }
+
+        if (TILDA_FEATURE_ENABLED) {
+            // -- pdf feature
+            values.add(getTildaValue(d));
         }
 
         return values;
@@ -372,6 +401,10 @@ public class Task3Learner extends PairwiseLearner {
 
     private double getPdfValue(Document d) {
         return d.url.toLowerCase().endsWith(".pdf") ? 1.0 : 0.0;
+    }
+
+    private double getTildaValue(Document d) {
+        return d.url.contains("~") ? 1.0 : 0.0;
     }
 
 }
